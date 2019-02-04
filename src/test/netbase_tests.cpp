@@ -94,15 +94,15 @@ BOOST_FIXTURE_TEST_SUITE(netbase_tests, BasicTestingSetup)
         BOOST_CHECK(TestSplitHost("www.cryptomiles.org:80", "www.cryptomiles.org", 80));
         BOOST_CHECK(TestSplitHost("[www.cryptomiles.org]:80", "www.cryptomiles.org", 80));
         BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", -1));
-        BOOST_CHECK(TestSplitHost("127.0.0.1:8999", "127.0.0.1", 8999));
+        BOOST_CHECK(TestSplitHost("127.0.0.1:8222", "127.0.0.1", 8222));
         BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", -1));
-        BOOST_CHECK(TestSplitHost("[127.0.0.1]:8999", "127.0.0.1", 8999));
+        BOOST_CHECK(TestSplitHost("[127.0.0.1]:8222", "127.0.0.1", 8222));
         BOOST_CHECK(TestSplitHost("::ffff:127.0.0.1", "::ffff:127.0.0.1", -1));
-        BOOST_CHECK(TestSplitHost("[::ffff:127.0.0.1]:8999", "::ffff:127.0.0.1", 8999));
-        BOOST_CHECK(TestSplitHost("[::]:8999", "::", 8999));
-        BOOST_CHECK(TestSplitHost("::8999", "::8999", -1));
-        BOOST_CHECK(TestSplitHost(":8999", "", 8999));
-        BOOST_CHECK(TestSplitHost("[]:8999", "", 8999));
+        BOOST_CHECK(TestSplitHost("[::ffff:127.0.0.1]:8222", "::ffff:127.0.0.1", 8222));
+        BOOST_CHECK(TestSplitHost("[::]:8222", "::", 8222));
+        BOOST_CHECK(TestSplitHost("::8222", "::8222", -1));
+        BOOST_CHECK(TestSplitHost(":8222", "", 8222));
+        BOOST_CHECK(TestSplitHost("[]:8222", "", 8222));
         BOOST_CHECK(TestSplitHost("", "", -1));
     }
 
@@ -117,10 +117,10 @@ BOOST_FIXTURE_TEST_SUITE(netbase_tests, BasicTestingSetup)
         BOOST_TEST_MESSAGE("Running NetBase LookUpNumeric Test");
 
         BOOST_CHECK(TestParse("127.0.0.1", "127.0.0.1:65535"));
-        BOOST_CHECK(TestParse("127.0.0.1:8999", "127.0.0.1:8999"));
+        BOOST_CHECK(TestParse("127.0.0.1:8222", "127.0.0.1:8222"));
         BOOST_CHECK(TestParse("::ffff:127.0.0.1", "127.0.0.1:65535"));
         BOOST_CHECK(TestParse("::", "[::]:65535"));
-        BOOST_CHECK(TestParse("[::]:8999", "[::]:8999"));
+        BOOST_CHECK(TestParse("[::]:8222", "[::]:8222"));
         BOOST_CHECK(TestParse("[127.0.0.1]", "127.0.0.1:65535"));
         BOOST_CHECK(TestParse(":::", "[::]:0"));
 

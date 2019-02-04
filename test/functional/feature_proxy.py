@@ -133,12 +133,12 @@ class ProxyTest(CryptomilesTestFramework):
             rv.append(cmd)
 
         # Test: outgoing DNS name connection through node
-        node.addnode("node.noumenon:8999", "onetry")
+        node.addnode("node.noumenon:8222", "onetry")
         cmd = proxies[3].queue.get()
         assert(isinstance(cmd, Socks5Command))
         assert_equal(cmd.atyp, AddressType.DOMAINNAME)
         assert_equal(cmd.addr, b"node.noumenon")
-        assert_equal(cmd.port, 8999)
+        assert_equal(cmd.port, 8222)
         if not auth:
             assert_equal(cmd.username, None)
             assert_equal(cmd.password, None)

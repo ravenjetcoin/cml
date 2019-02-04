@@ -10,12 +10,12 @@ The solution is to speed up adoption is to run cryptomilesd in compatibility mod
 
 As an example, normally the rpc call for transferring CML is   
 ```sendfrom "fromaccount" "toaddress" amount ( minconf "comment" "comment_to" )```   
-Ordinarily this call to cryptomilesd (port 8998) will transfer CML
+Ordinarily this call to cryptomilesd (port 8221) will transfer CML
 
 Configuring a different port for sending the TRONCO token will allow the same RPC call to transfer TRONCO instead of CML.  The advantage is that the only change needed for compatibility with a system that can already handle BTC and CML is to use the port configured for TRONCO, or whatever asset you'd like.
 
 ### Configuration
-Every Bitcoin-type, or Cryptomilescoin-type coin uses a different RPC port.  For example, the standard RPC port for Bitcoin is 8332, and the standard RPC port for Cryptomilescoin is 8998.
+Every Bitcoin-type, or Cryptomilescoin-type coin uses a different RPC port.  For example, the standard RPC port for Bitcoin is 8332, and the standard RPC port for Cryptomilescoin is 8221.
 
 An exchange can configure multiple Cryptomilescoin assets by selecting a different port for each asset.  Once configured, cryptomilesd will emulate a cryptomilesd daemon with RPC calls that send the specified asset, instead of CML.
 

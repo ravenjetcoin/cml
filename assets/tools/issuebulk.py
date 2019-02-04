@@ -27,7 +27,7 @@ import hashlib
 cli = "cryptomiles-cli"
 
 mode =  "-testnet"
-rpc_port = 18998
+rpc_port = 18221
 #mode =  "-regtest"
 #rpc_port = 18443
 csv_file = "Cryptomiles Assets - Sheet1.csv"

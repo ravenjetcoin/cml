@@ -66,7 +66,7 @@ address. The same address can be used in more than one notification.
 
 For instance:
 
-    $ cryptomilesd -zmqpubhashtx=tcp://127.0.0.1:28998 \
+    $ cryptomilesd -zmqpubhashtx=tcp://127.0.0.1:28221 \
                -zmqpubrawtx=ipc:///tmp/cryptomilesd.tx.raw
 
 Each PUB notification has a topic and body, where the header

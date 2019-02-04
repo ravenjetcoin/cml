@@ -9,10 +9,10 @@
 
     Cryptomiles should be started with the command line arguments:
         cryptomilesd -testnet -daemon \
-                -zmqpubhashblock=tcp://127.0.0.1:28998 \
-                -zmqpubrawtx=tcp://127.0.0.1:28998 \
-                -zmqpubhashtx=tcp://127.0.0.1:28998 \
-                -zmqpubhashblock=tcp://127.0.0.1:28998
+                -zmqpubhashblock=tcp://127.0.0.1:28221 \
+                -zmqpubrawtx=tcp://127.0.0.1:28221 \
+                -zmqpubhashtx=tcp://127.0.0.1:28221 \
+                -zmqpubhashblock=tcp://127.0.0.1:28221
 """
 
 import sys
@@ -26,7 +26,7 @@ context = zmq.Context()
 socket = context.socket(zmq.SUB)
 
 print("Getting Cryptomilescoin msgs")
-socket.connect("tcp://localhost:28998")
+socket.connect("tcp://localhost:28221")
 
 socket.setsockopt_string(zmq.SUBSCRIBE, "hashtx")
 socket.setsockopt_string(zmq.SUBSCRIBE, "hashblock")

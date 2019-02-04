@@ -42,11 +42,11 @@ reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equiv
 config file):
 
 	HiddenServiceDir /var/lib/tor/cryptomiles-service/
-	HiddenServicePort 8999 127.0.0.1:8999
-	HiddenServicePort 18999 127.0.0.1:18999
+	HiddenServicePort 8222 127.0.0.1:8222
+	HiddenServicePort 18222 127.0.0.1:18222
 
 The directory can be different of course, but (both) port numbers should be equal to
-your cryptomilesd's P2P listen port (8999 by default).
+your cryptomilesd's P2P listen port (8222 by default).
 
 	-externalip=X   You can tell cryptomiles about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
@@ -81,7 +81,7 @@ as well, use `discover` instead:
 
 	./cryptomilesd ... -discover
 
-and open port 8999 on your firewall (or use -upnp).
+and open port 8222 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:

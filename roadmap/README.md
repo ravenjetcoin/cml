@@ -8,8 +8,8 @@ Cryptomilescoin (CML) is a Proof of Work coin built on the Bitcoin UTXO model. A
 *  In app CPU mining
 *  Dark Gravity Wave difficulty adjustment (180 block average)
 *  Addresses start with R... for regular addresses, or r... for multisig
-*  Network Port: 8999
-*  RPC Port: 8998
+*  Network Port: 8222
+*  RPC Port: 8221
 
 ### Phase 2 - Assets (Complete)
 

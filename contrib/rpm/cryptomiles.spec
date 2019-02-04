@@ -332,10 +332,10 @@ if [ `%{_sbindir}/sestatus |grep -c "disabled"` -eq 0 ]; then
 for selinuxvariant in %{selinux_variants}; do
 	%{_sbindir}/semodule -s ${selinuxvariant} -i %{_datadir}/selinux/${selinuxvariant}/cryptomiles.pp &> /dev/null || :
 done
-%{_sbindir}/semanage port -a -t cryptomiles_port_t -p tcp 8998
-%{_sbindir}/semanage port -a -t cryptomiles_port_t -p tcp 8999
-%{_sbindir}/semanage port -a -t cryptomiles_port_t -p tcp 18998
-%{_sbindir}/semanage port -a -t cryptomiles_port_t -p tcp 18999
+%{_sbindir}/semanage port -a -t cryptomiles_port_t -p tcp 8221
+%{_sbindir}/semanage port -a -t cryptomiles_port_t -p tcp 8222
+%{_sbindir}/semanage port -a -t cryptomiles_port_t -p tcp 18221
+%{_sbindir}/semanage port -a -t cryptomiles_port_t -p tcp 18222
 %{_sbindir}/semanage port -a -t cryptomiles_port_t -p tcp 18443
 %{_sbindir}/semanage port -a -t cryptomiles_port_t -p tcp 18444
 %{_sbindir}/fixfiles -R cryptomiles-server restore &> /dev/null || :
@@ -353,10 +353,10 @@ fi
 # SELinux
 if [ $1 -eq 0 ]; then
 	if [ `%{_sbindir}/sestatus |grep -c "disabled"` -eq 0 ]; then
-	%{_sbindir}/semanage port -d -p tcp 8998
-	%{_sbindir}/semanage port -d -p tcp 8999
-	%{_sbindir}/semanage port -d -p tcp 18998
-	%{_sbindir}/semanage port -d -p tcp 18999
+	%{_sbindir}/semanage port -d -p tcp 8221
+	%{_sbindir}/semanage port -d -p tcp 8222
+	%{_sbindir}/semanage port -d -p tcp 18221
+	%{_sbindir}/semanage port -d -p tcp 18222
 	%{_sbindir}/semanage port -d -p tcp 18443
 	%{_sbindir}/semanage port -d -p tcp 18444
 	for selinuxvariant in %{selinux_variants}; do
