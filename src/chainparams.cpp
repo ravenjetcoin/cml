@@ -55,7 +55,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Brand new Extreme Fast Cryptomiles coin";
+    const char* pszTimestamp = "Cryptomiles: Creation and Transfer of Travel Loyalty Bonuses";
     const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -118,15 +118,15 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 210000;  //~ 22 days at 9 sec block time
+        consensus.nSubsidyHalvingInterval = 2000000;  //~ 185 days at 8 sec block time
         consensus.nBIP34Enabled = false;
         consensus.nBIP65Enabled = true; // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
         consensus.nBIP66Enabled = true;
         consensus.nSegwitEnabled = true;
         consensus.nCSVEnabled = true;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 9 * 60; // 9 mins
-        consensus.nPowTargetSpacing = 9;
+        consensus.nPowTargetTimespan = 8 * 60; // 8 mins
+        consensus.nPowTargetSpacing = 8;
 		consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 57; // 95% of 60
@@ -166,9 +166,44 @@ public:
         nDefaultPort = 8222;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1547577891, 22868877, 0x1e00ffff, 4, 50 * COIN);
+        genesis = CreateGenesisBlock(1549388696, 22868877, 0x1e00ffff, 4, 2.5 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetHash();
+
+                        FILE * pFile;
+                        pFile = fopen ("c:\crm\log.log","w");
+
+                         arith_uint256 test;
+                         bool fNegative;
+                         bool fOverflow;
+                         test.SetCompact(0x1e00ffff, &fNegative, &fOverflow);
+
+                         int genesisNonce = 0;
+                         uint256 TempHashHolding = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
+                         uint256 BestBlockHash = uint256S("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+                         for (int i=0;i<40000000;i++) {
+                             genesis = CreateGenesisBlock(1549388696, i, 0x1e00ffff, 4, 2.5 * COIN);
+                             consensus.hashGenesisBlock = genesis.GetHash();
+
+                             arith_uint256 BestBlockHashArith = UintToArith256(BestBlockHash);
+                             if (UintToArith256(consensus.hashGenesisBlock) < BestBlockHashArith) {
+                                 BestBlockHash = consensus.hashGenesisBlock;
+                                 genesisNonce = i;
+                             }
+
+                             if (BestBlockHashArith < test) {
+                                 break;
+                             }
+                         }
+
+                        fprintf(pFile, "hash = %s\n", BestBlockHash.ToString().c_str());
+                        fprintf(pFile, "merklehash: = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+                        fprintf(pFile, "nonce = %d\n", genesisNonce);
+
+                        fprintf(pFile, "hash = %s\n", genesis.GetHash().ToString().c_str());
+                        fprintf(pFile, "merklehash: = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+
+                        fclose(pFile);
 
         assert(consensus.hashGenesisBlock == uint256S("0x000000211d79c347e171314b27c7ee6f9b1338a64b0ea03e8b1e4a375313b3e6"));
         assert(genesis.hashMerkleRoot == uint256S("8261d89bd34e815d4821c0f81991a9d13f4171b33e7172249f66e62883a5feea"));
@@ -196,7 +231,7 @@ public:
         chainTxData = ChainTxData{
             // Update as we know more about the contents of the Cryptomiles chain
             // Stats as of 000000000000a72545994ce72b25042ea63707fca169ca4deb7f9dab4f1b1798 window size 43200
-            1547577891, // * UNIX timestamp of last known number of transactions
+            1549388696, // * UNIX timestamp of last known number of transactions
             1,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             1         // * estimated number of transactions per second after that timestamp
