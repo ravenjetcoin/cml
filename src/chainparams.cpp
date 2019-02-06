@@ -166,10 +166,10 @@ public:
         nDefaultPort = 8222;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1549388696, 22868877, 0x1e00ffff, 4, 2.5 * COIN);
+        genesis = CreateGenesisBlock(1549388696, 26098396, 0x1e00ffff, 4, 2.5 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetHash();
-
+/*
                         FILE * pFile;
                         pFile = fopen ("c:\crm\log.log","w");
 
@@ -200,17 +200,17 @@ public:
                         fprintf(pFile, "merklehash: = %s\n", genesis.hashMerkleRoot.ToString().c_str());
                         fprintf(pFile, "nonce = %d\n", genesisNonce);
 
-                        fprintf(pFile, "hash = %s\n", genesis.GetHash().ToString().c_str());
-                        fprintf(pFile, "merklehash: = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+                        //fprintf(pFile, "hash = %s\n", genesis.GetHash().ToString().c_str());
+                        //fprintf(pFile, "merklehash: = %s\n", genesis.hashMerkleRoot.ToString().c_str());
 
                         fclose(pFile);
+*/
+        assert(consensus.hashGenesisBlock == uint256S("000000bd4c8be0c57d795ca25847ca1f01030618a28f608cb9f64dcc6253a2c4"));
+        assert(genesis.hashMerkleRoot == uint256S("6ef246f29b3422c5b5dbbd20a444754bab2bd818c0e81509f3ad9b0177eea392"));
 
-        assert(consensus.hashGenesisBlock == uint256S("0x000000211d79c347e171314b27c7ee6f9b1338a64b0ea03e8b1e4a375313b3e6"));
-        assert(genesis.hashMerkleRoot == uint256S("8261d89bd34e815d4821c0f81991a9d13f4171b33e7172249f66e62883a5feea"));
 
-
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,50);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,110);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,28);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,88);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,138);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
@@ -239,20 +239,19 @@ public:
 
         /** CML Start **/
         // Burn Amounts
-        nIssueAssetBurnAmount = 5 * COIN;
-        nReissueAssetBurnAmount = 1 * COIN;
-        nIssueSubAssetBurnAmount = 1 * COIN;
-        nIssueUniqueAssetBurnAmount = 0.05 * COIN;
+        nIssueAssetBurnAmount = 1 * COIN;
+        nReissueAssetBurnAmount = 0.1 * COIN;
+        nIssueSubAssetBurnAmount = 0.1 * COIN;
+        nIssueUniqueAssetBurnAmount = 0.1 * COIN;
 
         // Burn Addresses
-        //strIssueAssetBurnAddress = "MXissueAssetXXXXXXXXXXXXXXXXXhhZGt";
-        strIssueAssetBurnAddress = "MXCryptoLifeDotNetBurnAddrXXY9SEys";
-        strReissueAssetBurnAddress = "MXCryptoLifeDotNetBurnAddrXXY9SEys";
-        strIssueSubAssetBurnAddress = "MXCryptoLifeDotNetBurnAddrXXY9SEys";
-        strIssueUniqueAssetBurnAddress = "MXCryptoLifeDotNetBurnAddrXXY9SEys";
+        strIssueAssetBurnAddress = "CJCryptoLifeDotNetBurnAddrXXYQmsK4";
+        strReissueAssetBurnAddress = "CJCryptoLifeDotNetBurnAddrXXYQmsK4";
+        strIssueSubAssetBurnAddress = "CJCryptoLifeDotNetBurnAddrXXYQmsK4";
+        strIssueUniqueAssetBurnAddress = "CJCryptoLifeDotNetBurnAddrXXYQmsK4";
 
         //Global Burn Address
-        strGlobalBurnAddress = "MXCryptoLifeDotNetBurnAddrXXY9SEys";
+        strGlobalBurnAddress = "CJCryptoLifeDotNetBurnAddrXXYQmsK4";
 
         // DGW Activation
         nDGWActivationBlock = 0;

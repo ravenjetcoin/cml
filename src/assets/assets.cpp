@@ -2875,10 +2875,12 @@ bool CheckAmountWithUnits(const CAmount& nAmount, const uint8_t nUnits)
 
 bool CheckEncodedIPFS(const std::string& hash, std::string& strError)
 {
+    /*
     if (hash.substr(0, 2) != "Qm") {
         strError = _("Invalid parameter: ipfs_hash must start with 'Qm'.");
         return false;
     }
+    */
 
     return true;
 }
