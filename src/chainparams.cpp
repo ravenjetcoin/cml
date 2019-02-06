@@ -170,7 +170,7 @@ public:
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-   /*                     FILE * pFile;
+                    FILE * pFile;
                         pFile = fopen ("c:\crm\log.log","w");
 
                          arith_uint256 test;
@@ -181,7 +181,7 @@ public:
                          int genesisNonce = 0;
                          uint256 TempHashHolding = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
                          uint256 BestBlockHash = uint256S("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-                         for (int i=0;i<40000000;i++) {
+                         for (int i=0;i<200000000;i++) {
                              genesis = CreateGenesisBlock(1549455535, i, 0x1e00ffff, 4, 2.5 * COIN);
                              consensus.hashGenesisBlock = genesis.GetHash();
 
@@ -204,7 +204,7 @@ public:
                         //fprintf(pFile, "merklehash: = %s\n", genesis.hashMerkleRoot.ToString().c_str());
 
                         fclose(pFile);
-*/
+
         assert(consensus.hashGenesisBlock == uint256S("0x000000459e52718619b56e99a125bd90eac4854a2a4ab4f7e43b893206422fe6"));
         assert(genesis.hashMerkleRoot == uint256S("6ef246f29b3422c5b5dbbd20a444754bab2bd818c0e81509f3ad9b0177eea392"));
 
