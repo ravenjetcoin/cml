@@ -1180,11 +1180,22 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
     // Force block reward to zero when right shift is undefined.
+
+    if (nHeight == 1) {
+        return 2000000 * COIN;
+        //premine
+    }
+
+    if (nHeight == 2) {
+        return 10000000 * COIN;
+        //travelnodes budget
+    }
+
     if (halvings >= 64)
         return 0;
 
-    CAmount nSubsidy = 50 * COIN;
-    // Subsidy is cut in half every 2,100,000 blocks which will occur approximately every 4 years.
+    CAmount nSubsidy = 2.5 * COIN;
+    // Subsidy is cut in half every 2,000,000 blocks which will occur approximately every half of year.
     nSubsidy >>= halvings;
     return nSubsidy;
 }
