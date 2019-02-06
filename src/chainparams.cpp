@@ -166,10 +166,10 @@ public:
         nDefaultPort = 8222;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1549388696, 26098396, 0x1e00ffff, 4, 2.5 * COIN);
+        genesis = CreateGenesisBlock(1549455535, 26098396, 0x1e00ffff, 4, 2.5 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetHash();
-/*
+
                         FILE * pFile;
                         pFile = fopen ("c:\crm\log.log","w");
 
@@ -182,7 +182,7 @@ public:
                          uint256 TempHashHolding = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
                          uint256 BestBlockHash = uint256S("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
                          for (int i=0;i<40000000;i++) {
-                             genesis = CreateGenesisBlock(1549388696, i, 0x1e00ffff, 4, 2.5 * COIN);
+                             genesis = CreateGenesisBlock(1549455535, i, 0x1e00ffff, 4, 2.5 * COIN);
                              consensus.hashGenesisBlock = genesis.GetHash();
 
                              arith_uint256 BestBlockHashArith = UintToArith256(BestBlockHash);
@@ -204,8 +204,8 @@ public:
                         //fprintf(pFile, "merklehash: = %s\n", genesis.hashMerkleRoot.ToString().c_str());
 
                         fclose(pFile);
-*/
-        assert(consensus.hashGenesisBlock == uint256S("000000bd4c8be0c57d795ca25847ca1f01030618a28f608cb9f64dcc6253a2c4"));
+
+        assert(consensus.hashGenesisBlock == uint256S("0x000000bd4c8be0c57d795ca25847ca1f01030618a28f608cb9f64dcc6253a2c4"));
         assert(genesis.hashMerkleRoot == uint256S("6ef246f29b3422c5b5dbbd20a444754bab2bd818c0e81509f3ad9b0177eea392"));
 
 
@@ -231,7 +231,7 @@ public:
         chainTxData = ChainTxData{
             // Update as we know more about the contents of the Cryptomiles chain
             // Stats as of 000000000000a72545994ce72b25042ea63707fca169ca4deb7f9dab4f1b1798 window size 43200
-            1549388696, // * UNIX timestamp of last known number of transactions
+            1549455535, // * UNIX timestamp of last known number of transactions
             1,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             1         // * estimated number of transactions per second after that timestamp
