@@ -191,9 +191,13 @@ public:
                                  genesisNonce = i;
                              }
 
-                             if (BestBlockHashArith < test) {
-                                 break;
-                             }
+
+
+                             //if (BestBlockHashArith < test) {
+                             //    break;
+                             //}
+
+
                          }
 
                         fprintf(pFile, "hash = %s\n", BestBlockHash.ToString().c_str());
