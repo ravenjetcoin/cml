@@ -1181,6 +1181,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
     // Force block reward to zero when right shift is undefined.
 
+    /*
     if (nHeight == 1) {
         return 2000000 * COIN;
         //premine
@@ -1190,6 +1191,8 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
         return 10000000 * COIN;
         //travelnodes budget
     }
+
+    */
 
     if (halvings >= 64)
         return 0;
