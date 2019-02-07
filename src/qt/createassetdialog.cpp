@@ -467,7 +467,7 @@ bool CreateAssetDialog::checkIPFSHash(QString hash)
             disableCreateButton();
             return false;
         } else {
-            showMessage(DecodeIPFS(hash.toStdString()));
+            showMessage(QString::fromUtf8(DecodeIPFS(hash.toStdString())));
         }
     }
 
