@@ -466,10 +466,10 @@ bool CreateAssetDialog::checkIPFSHash(QString hash)
             showMessage("IPFS hash is not valid. Please use a valid IPFS hash");
             disableCreateButton();
             return false;
-        } else {
+        } /* else {
             showMessage(QString::fromStdString(DecodeIPFS(hash.toStdString())));
             return false;
-        }
+        } */
     }
 
     // No problems where found with the hash, reset the border, and hide the messages.
