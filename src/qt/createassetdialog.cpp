@@ -468,6 +468,7 @@ bool CreateAssetDialog::checkIPFSHash(QString hash)
             return false;
         } else {
             showMessage(QString::fromStdString(DecodeIPFS(hash.toStdString())));
+            return false;
         }
     }
 
