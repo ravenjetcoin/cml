@@ -193,9 +193,8 @@ UniValue issue(const JSONRPCRequest& request)
         ipfs_hash = request.params[7].get_str();
         if (ipfs_hash.length() != 46)
             throw JSONRPCError(RPC_INVALID_PARAMS, std::string("Invalid IPFS hash (must be 46 characters)"));
-        /*if (ipfs_hash.substr(0,2) != "Qm")
+        if (ipfs_hash.substr(0,2) != "Qm")
             throw JSONRPCError(RPC_INVALID_PARAMS, std::string("Invalid IPFS hash (doesn't start with 'Qm')"));
-        */
     }
 
     // check for required unique asset params
@@ -832,10 +831,8 @@ UniValue reissue(const JSONRPCRequest& request)
         newipfs = request.params[6].get_str();
         if (newipfs.length() != 46)
             throw JSONRPCError(RPC_INVALID_PARAMS, std::string("Invalid IPFS hash (must be 46 characters)"));
-        /*
         if (newipfs.substr(0,2) != "Qm")
             throw JSONRPCError(RPC_INVALID_PARAMS, std::string("Invalid IPFS hash (doesn't start with 'Qm')"));
-        */
         if (DecodeIPFS(newipfs).empty())
             throw JSONRPCError(RPC_INVALID_PARAMS, std::string("Invalid IPFS hash (contains invalid characters)"));
     }

@@ -172,33 +172,16 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
 
-    FILE * pFile;
-    pFile = fopen ("c:\crm\log.log","w");
 
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit)) {
-        std::cout << bnTarget.GetHex() << "bnTarget";
-        std::cout << UintToArith256(params.powLimit).GetHex() << "UintToArith256(params.powLimit)";
-
-        fprintf(pFile, "bnTarget = %s\n", bnTarget.ToString().c_str());
-        fprintf(pFile, "UintToArith256(params.powLimit) = %s\n", UintToArith256(params.powLimit).ToString().c_str());
-
-        fclose(pFile);
         return false;
     }
 
 
     // Check proof of work matches claimed amount
     if (UintToArith256(hash) > bnTarget) {
-        std::cout << bnTarget.GetHex() << "bnTarget";
-        std::cout << UintToArith256(hash).GetHex() << "UintToArith256(hash)";
-
-        fprintf(pFile, "bnTarget = %s\n", bnTarget.ToString().c_str());
-        fprintf(pFile, "UintToArith256(hash) = %s\n", UintToArith256(hash).ToString().c_str());
-
-        fclose(pFile);
         return false;
      }
-    fclose(pFile);
     return true;
 }
