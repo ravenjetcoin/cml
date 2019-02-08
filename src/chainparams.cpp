@@ -169,46 +169,7 @@ public:
         genesis = CreateGenesisBlock(1549455535, 98750490, 0x1e00ffff, 4, 2.5 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetHash();
-/*
-                    FILE * pFile;
-                        pFile = fopen ("c:\crm\log.log","w");
 
-                         arith_uint256 test;
-                         bool fNegative;
-                         bool fOverflow;
-                         test.SetCompact(0x1e00ffff, &fNegative, &fOverflow);
-
-                         int genesisNonce = 0;
-                         uint256 TempHashHolding = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
-                         uint256 BestBlockHash = uint256S("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-                         for (int i=0;i<200000000;i++) {
-                             genesis = CreateGenesisBlock(1549455535, i, 0x1e00ffff, 4, 2.5 * COIN);
-                             consensus.hashGenesisBlock = genesis.GetHash();
-
-                             arith_uint256 BestBlockHashArith = UintToArith256(BestBlockHash);
-                             if (UintToArith256(consensus.hashGenesisBlock) < BestBlockHashArith) {
-                                 BestBlockHash = consensus.hashGenesisBlock;
-                                 genesisNonce = i;
-                             }
-
-
-
-                             //if (BestBlockHashArith < test) {
-                             //    break;
-                             //}
-
-
-                         }
-
-                        fprintf(pFile, "hash = %s\n", BestBlockHash.ToString().c_str());
-                        fprintf(pFile, "merklehash: = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-                        fprintf(pFile, "nonce = %d\n", genesisNonce);
-
-                        //fprintf(pFile, "hash = %s\n", genesis.GetHash().ToString().c_str());
-                        //fprintf(pFile, "merklehash: = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-
-                        fclose(pFile);
-*/
         assert(consensus.hashGenesisBlock == uint256S("0x0000001b55bd4f894ab01ac153cd22c0c3cb47d7d091b8591079b7a78cf60c10"));
         assert(genesis.hashMerkleRoot == uint256S("6ef246f29b3422c5b5dbbd20a444754bab2bd818c0e81509f3ad9b0177eea392"));
 
